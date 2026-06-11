@@ -18,6 +18,11 @@
 <meta name="language" content="Spanish">
 <meta name="revisit-after" content="7 days">
 <meta name="theme-color" content="#1a4a7a">
+<!-- FAVICON -->
+<link rel="icon" type="image/svg+xml" href="/img/logo.svg">
+<link rel="icon" type="image/png" href="/img/logo.png">
+<link rel="apple-touch-icon" href="/img/logo.png">
+<link rel="shortcut icon" href="/img/logo.png">
 <!-- PWA -->
 <link rel="manifest" href="/manifest.json">
 <!-- OPEN GRAPH -->
@@ -27,7 +32,7 @@
 <meta property="og:url" content="https://www.restaurantearguineguin.com/">
 <meta property="og:site_name" content="Restaurante Arguineguín">
 <meta property="og:locale" content="es_ES">
-<meta property="og:image" content="https://www.restaurantearguineguin.com/img/hero-1.jpeg">
+<meta property="og:image" content="https://www.restaurantearguineguin.com/img/logo.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Restaurante Arguineguín - Pescados y Mariscos frescos en Gran Canaria">
@@ -35,7 +40,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Restaurante Arguineguín | Pescados y Mariscos en Gran Canaria">
 <meta name="twitter:description" content="Especialistas en pescados y mariscos frescos del Atlántico, paellas y cocina canaria auténtica en Arguineguín, Gran Canaria.">
-<meta name="twitter:image" content="https://www.restaurantearguineguin.com/img/hero-1.jpeg">
+<meta name="twitter:image" content="https://www.restaurantearguineguin.com/img/logo.png">
 <meta name="twitter:image:alt" content="Restaurante Arguineguín Gran Canaria">
 <!-- PERFORMANCE — preconnects & prefetch -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +58,12 @@
   "name": "Restaurante Arguineguín",
   "alternateName": "Restaurant Arguineguin",
   "url": "https://www.restaurantearguineguin.com",
-  "logo": "https://www.restaurantearguineguin.com/img/logo.png",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.restaurantearguineguin.com/img/logo.png",
+    "width": 512,
+    "height": 512
+  },
   "image": [
     "https://www.restaurantearguineguin.com/img/hero-1.jpeg",
     "https://www.restaurantearguineguin.com/img/hero-2.jpeg",
@@ -429,7 +439,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 <header>
 <!-- NAV -->
 <nav id="nav" aria-label="Navegación principal">
-  <a href="#" class="nl">Arguineguín</a>
+  <a href="#inicio"><img src="/img/logo.svg" alt="Restaurante Arguineguín" height="50" style="display:block"></a>
   <ul class="nm" id="nm">
     <li><a href="#filosofia" onclick="cnav()">Nosotros</a></li>
     <li><a href="#especialidades" onclick="cnav()">Carta</a></li>
@@ -630,7 +640,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
 <!-- FOOTER -->
 <footer id="foot">
-  <div class="flogo">ARGUINEGUÍN</div>
+  <div class="flogo"><img src="/img/logo.svg" alt="Restaurante Arguineguín" height="60" style="display:inline-block"></div>
   <nav class="fnav" aria-label="Navegación footer">
     <a href="#filosofia">Nosotros</a>
     <a href="#especialidades">Carta</a>
