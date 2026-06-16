@@ -1,14 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
 
-Sitemap: https://www.restaurantearguineguin.com/sitemap.xml
-
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 2
+Sitemap: https://restaurantearguineguin.com/sitemap.xml
