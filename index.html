@@ -653,11 +653,11 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
     </div>
   </div>
   <div class="ebtns rv">
-    <button class="ebtn" onclick="ocarta('img/Carta_Comidas.jpeg','Carta de Comidas')">
+    <button class="ebtn" onclick="ocarta(['img/carta-1.jpg','img/carta-2.jpg','img/carta-3.jpg'],'Carta de Comidas')">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
       Ver la carta
     </button>
-    <button class="ebtn ebtn-2" onclick="ocarta('img/Carta_Desayunos.jpeg','Carta de Desayunos')">
+    <button class="ebtn ebtn-2" onclick="ocarta(['img/Carta_Desayunos.jpeg'],'Carta de Desayunos')">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
       Desayunos
     </button>
@@ -797,11 +797,11 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
       Llamar ahora
     </a>
     <div class="pcarta">
-      <button class="pcbtn" onclick="cmod();ocarta('img/Carta_Comidas.jpeg','Carta de Comidas')">
+      <button class="pcbtn" onclick="cmod();ocarta(['img/carta-1.jpg','img/carta-2.jpg','img/carta-3.jpg'],'Carta de Comidas')">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         Ver la carta
       </button>
-      <button class="pcbtn" onclick="cmod();ocarta('img/Carta_Desayunos.jpeg','Carta de Desayunos')">
+      <button class="pcbtn" onclick="cmod();ocarta(['img/Carta_Desayunos.jpeg'],'Carta de Desayunos')">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
         Desayunos
       </button>
@@ -817,7 +817,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   </button>
   <div class="cartam-box">
     <div class="cartam-ttl" id="cartam-ttl">Carta</div>
-    <img id="cartam-img" src="" alt="Carta del Restaurante Arguineguín">
+    <div id="cartam-imgs"></div>
   </div>
 </div>
 
@@ -984,11 +984,13 @@ window.omod=omod;window.cmod=cmod;window.hov=hov;
 
 /* ── VISOR CARTA ─────────────────────────────────── */
 var cartam=document.getElementById('cartam'),
-    cartamImg=document.getElementById('cartam-img'),
+    cartamImgs=document.getElementById('cartam-imgs'),
     cartamTtl=document.getElementById('cartam-ttl');
-function ocarta(src,titulo){
-  cartamImg.src=src;
-  cartamImg.alt=titulo+' - Restaurante Arguineguín';
+function ocarta(srcs,titulo){
+  if(!Array.isArray(srcs))srcs=[srcs];
+  cartamImgs.innerHTML=srcs.map(function(s,i){
+    return '<img src="'+s+'" alt="'+titulo+' pág '+(i+1)+' - Restaurante Arguineguín" loading="'+(i===0?'eager':'lazy')+'" style="margin-top:'+(i>0?'1.2rem':'0')+'">';
+  }).join('');
   cartamTtl.textContent=titulo;
   cartam.scrollTop=0;
   cartam.classList.add('op');
