@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://restaurantearguineguin.com/sitemap.xml
+Sitemap: https://www.restaurantearguineguin.com/sitemap.xml
